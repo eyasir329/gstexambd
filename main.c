@@ -1,20 +1,21 @@
 #include<stdio.h>
+char answer(char ans0[],int num);
 
 
-char answer(int num);
+
+
 int main(){
-    printf("hello\n");
     int qnum=125;
-    answer(qnum);
+    char ans[]="ACDCBCCACBCBDBCCBCCDCBBBACCDACBCAAACBBBCDBBDBBBCBBACBCBBACCDBCDACAACCBBCDDBCCBAABBDDBCBABBDBCCCAABCBBBACBCCCCCAAABABAABCCCABD";
+    answer(ans,qnum);
 }
 
 
 
 //answer sheet for 125 question
-char answer(int num){
-    char ans[]="ACDCBCCACBCBDBCCBCCDCBBBACCDACBCAAACBBBCDBBDBBBCBBACBCBBACCDBCDACAACCBBCDDBCCBAABBDDBCBABBDBCCCAABCBBBACBCCCCCAAABABAABCCCABD";
-    /*int i;
+char answer(char ans0[],int num){
+    int i;
     for(i=0;i<num;i++){
-        printf("%d is %c\n",i+1,ans[i]);
-    }*/
+        printf("%d is %c\n",i+1,ans0[i]);
+    }
 }
