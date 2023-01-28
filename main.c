@@ -1,41 +1,58 @@
 #include<stdio.h>
-char answer(char ans0[],int num);
-int total(char arr1[],char arr2[],int num);
+#include<string.h>
+#define Max_lines 130
+#define Max_len 30
 
-
-
-
+//input ans and student mark
 int main(){
-    int qnum=125;
-    char ans[]="ACDCBCCACBCBDBCCBCCDCBBBACCDACBCAAACBBBCDBBDBBBCBBACBCBBACCDBCDACAACCBBCDDBCCBAABBDDBCBABBDBCCCAABCBBBACBCCCCCAAABABAABCCCABD";
-    answer(ans,qnum);
+    int k,line=0,len=0,dcut=0,qnum=125;
+    char ch[Max_lines][Max_len];
+    char ans[qnum];
 
-    char marks[]={"BCACBCCACBCBDBCCBCCDCBBBACCDACBCAAACBBBCDBBDBBBCBBACBCBBACCDBCDACAACCBBCDDBCCBAABBDDBCBABBDBCCCAABCBBBACBCCCCCAAABABAABCCCABD"};
+    FILE *fans,*fpt;
 
-    total(ans,marks,qnum);
-}
-
-
-
-//answer sheet for 125 question
-char answer(char ans0[],int num){
-    int i;
-    for(i=0;i<num;i++){
-        printf("%d is %c\n",i+1,ans0[i]);
-    }
-}
-
-//compare marks to answer and count total
-int total(char arr1[],char arr2[],int num){
-    int i,count=0,cut=0;
-    float total0=0;
-    for(i=0;i<num;i++){
-        if(arr1[i]==arr2[i]){
-            count++;
-        }else{
-            cut++;
+    //input answersheet
+    fans=fopen("ans.text","r");
+    if(fans==NULL){
+        printf("AnswerSheet is not found\n");
+    }else{
+        for(k=0;k<qnum;k++){
+            fscanf(fans,"%s",&ans[k]);
         }
     }
-    total0=(float)count-((0.25)*(float)cut);
-    printf("total is %.2f\n",total0);
+    fclose(fans);
+    //answer sheet print
+    printf("\t\t----------------------------------------------------\n");
+    printf("\t\t-----------------------SOLUTION---------------------\n");
+    printf("\t\t----------------------------------------------------\n");
+    for(k=0;k<qnum;k++){
+        printf("\t\t\tQuestion %d:- Answer is : %c\t\t\t\n",k+1,ans[k]);
+    }
+    printf("\t\t----------------------------------------------------\n");
+    printf("\t\t----------------------------------------------------\n");
+
+    //input student marks
+    char stud1[4],stud2[4],stud3[4],stud4[4],stud5[4],stud6[4],stud7[4],stud8[4],stud9[4],stud9[4];
+    fpt=fopen("stud2.txt","r");
+
+    if(fpt==NULL){
+        printf("Student data file is not found\n");
+        return 1;
+    }
+    while(!feof(fpt)&&!ferror(fpt)){
+        if(fgets(ch[line],Max_len,fpt)!=NULL){
+            line++;
+        }
+    }
+    fclose(fpt);
+
+    //double mark counting
+    for(k=0;k<line;k++){
+        len= strlen(ch[k]);
+        if(len>2){
+            dcut++;
+        }
+    }
+    printf("\ndouble ans %d\n",dcut);
+    return 0;
 }
