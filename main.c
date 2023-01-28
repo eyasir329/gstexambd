@@ -34,6 +34,7 @@ int main()
     printf("Physics[1-25],Chemistry[26-50],Higher Math[51-75],Biology[76-100],English[101-125]\n");
     printf("\t\tSelect Phusics, Chemistry And Two More Subjects\n");
     printf("\t\t\t\tTotal 100 Marks Exam\n");
+    printf("\n");
     printf("\t\t----------------------------------------------------\n");
     for (k = 4; k < Max_lines; k++)
     {
@@ -43,7 +44,7 @@ int main()
 
     // input student marks
     // functionality for multiple student
-    fpt = fopen("stud1.txt", "r");
+    fpt = fopen("stud9.txt", "r");
 
     if (fpt == NULL)
     {
@@ -58,24 +59,59 @@ int main()
         }
     }
     fclose(fpt);
-
     // double marks checking
-    // printf("ans %s ch %s",ans[1],ch[1]);
-    int cut = 0, dcut = 0, count = 0;
+    printf("\t\tSelected Subject :\n");
+    printf("\t\t%s", ch[2]);
+    printf("\t\t%s", ch[3]);
+    int dcut = 0, count = 0;
     for (i = 4; i < line; i++)
     {
         if (strlen(ch[i]) > 2)
         {
             dcut++;
         }
-        else{
+        // phy,chemistry
+        if (i >= 4 && i < 54)
+        {
             if (strcmp(ans[i], ch[i]) == 0)
+            {
+                count++;
+            }
+        }
+        // math
+        if (strlen(ch[2]) == 12)
+        {
+            if (i >= 54 && i < 79)
+            {
+                if (strcmp(ans[i], ch[i]) == 0)
                 {
                     count++;
                 }
+            }
+        }
+        // bio
+        if ((strlen(ch[2]) == 8) || (strlen(ch[3]) == 8))
+        {
+            if (i >= 79 && i < 104)
+            {
+                if (strcmp(ans[i], ch[i]) == 0)
+                {
+                    count++;
+                }
+            }
+        }
+        // eng
+        if ((strlen(ch[2]) == 9) || (strlen(ch[3]) == 9))
+        {
+            if (i >= 104 && i < 129)
+            {
+                if (strcmp(ans[i], ch[i]) == 0)
+                {
+                    count++;
+                }
+            }
         }
     }
-
     // comparing marks and answer
     printf("\t\t\tTotal Number : %d\n", count);
     printf("\t\t----------------------------------------------------\n");
@@ -83,14 +119,13 @@ int main()
 
     // saving total marks and other info to a file
     fout = fopen("total.text", "a");
-    fprintf(fout,"Student Name : \n%s",ch[0]);
-    fprintf(fout,"Roll Number : \n%s",ch[1]);
-    fprintf(fout,"Optional Subjects\n");
-    fprintf(fout,"%s",ch[2]);
-    fprintf(fout,"%s",ch[3]);
+    fprintf(fout, "Student Name : \n%s", ch[0]);
+    fprintf(fout, "Roll Number : \n%s", ch[1]);
+    fprintf(fout, "Optional Subjects\n");
+    fprintf(fout, "%s", ch[2]);
+    fprintf(fout, "%s", ch[3]);
     fprintf(fout, "Obtained Marks : \n%d\n", count);
 
     fclose(fout);
     return 0;
 }
-
