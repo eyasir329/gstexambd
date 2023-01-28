@@ -1,0 +1,1 @@
+strlen(ch[k]
