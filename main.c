@@ -10,7 +10,6 @@ int main()
     int num_stud = 10;
     char ch[Max_lines][Max_len];
     char ans[Max_lines][Max_len];
-    char TOTAL[50];
 
     FILE *fans, *fpt, *fout;
 
@@ -32,10 +31,13 @@ int main()
     // answer sheet print
     printf("\t\t----------------------------------------------------\n");
     printf("\t\t-----------------------SOLUTION---------------------\n");
+    printf("Physics[1-25],Chemistry[26-50],Higher Math[51-75],Biology[76-100],English[101-125]\n");
+    printf("\t\tSelect Phusics, Chemistry And Two More Subjects\n");
+    printf("\t\t\t\tTotal 100 Marks Exam\n");
     printf("\t\t----------------------------------------------------\n");
-    for (k = 0; k < Max_lines; k++)
+    for (k = 4; k < Max_lines; k++)
     {
-        printf("\t\t\tQuestion %d:- Answer is : %s\t\t\t\n", k + 1, ans[k]);
+        printf("\t\t\tQuestion %d:- Answer is : %s\t\t\t\n", k - 3, ans[k]);
     }
     printf("\t\t----------------------------------------------------\n");
 
@@ -56,17 +58,6 @@ int main()
         }
     }
     fclose(fpt);
-    // student marks and answer
-    printf("\t\t--------Comparing Answer And Marking Questions-------\n");
-    printf("\t\t----------------------------------------------------\n");
-
-    for (k = 4; k < line; k++)
-    {
-        printf("\t\t\t%d Answer is %s\n\t\t\t\t...Marking > %s", k + 1, ans[k], ch[k]);
-        printf("\n");
-    }
-    printf("\t\t----------------------------------------------------\n");
-    printf("\t\t----------------------------------------------------\n");
 
     // double marks checking
     // printf("ans %s ch %s",ans[1],ch[1]);
@@ -77,12 +68,13 @@ int main()
         {
             dcut++;
         }
+        else{
+            if (strcmp(ans[i], ch[i]) == 0)
+                {
+                    count++;
+                }
+        }
     }
-    if (strlen(ch[128]) > 1)
-    {
-        dcut++;
-    }
-    printf("\t\t\tTwo or more answer : %d\n", dcut);
     // physics 0-24;
     // chemistry 25-49;
     // Higher Math 50-74;
@@ -90,28 +82,20 @@ int main()
     // English 99-124;
 
     // comparing marks and answer
-    for (i = 4; i < line; i++)
-    {
-        if (strcmp(ans[i], ch[i]) == 0)
-        {
-            count++;
-        }
-        else
-        {
-            cut++;
-        }
-    }
     printf("\t\t\tTotal Number : %d\n", count);
-    printf("\t\t\tNot Claimed Number : %d\n", cut);
     printf("\t\t----------------------------------------------------\n");
     printf("\t\t----------------------------------------------------\n");
-    printf("%s",ch[0]);
+
     // saving total marks and other info to a file
     fout = fopen("total.text", "a");
-    fprintf(fout, "Total Marks is %d\n", count);
+    fprintf(fout,"Student Name : \n%s",ch[0]);
+    fprintf(fout,"Roll Number : \n%s",ch[1]);
+    fprintf(fout,"Optional Subjects\n");
+    fprintf(fout,"%s",ch[2]);
+    fprintf(fout,"%s",ch[3]);
+    fprintf(fout, "Obtained Marks : \n%d\n", count);
 
     fclose(fout);
-
     return 0;
 }
 
