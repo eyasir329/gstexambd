@@ -75,11 +75,11 @@ int main()
                 }
         }
     }
-    // physics 0-24;
-    // chemistry 25-49;
-    // Higher Math 50-74;
-    // Biology 75-99;
-    // English 99-124;
+    // physics 4-28;
+    // chemistry 29-54;
+    // Higher Math 55-89;
+    // Biology 90-114;
+    // English 115-129;
 
     // comparing marks and answer
     printf("\t\t\tTotal Number : %d\n", count);
