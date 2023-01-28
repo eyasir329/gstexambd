@@ -33,7 +33,7 @@ int main()
     printf("\t\t-----------------------SOLUTION---------------------\n");
     printf("Physics[1-25],Chemistry[26-50],Higher Math[51-75],Biology[76-100],English[101-125]\n");
     printf("\t\tSelect Phusics, Chemistry And Two More Subjects\n");
-    printf("\t\t\t\tTotal 100 Marks Exam\n");
+    printf("\t\t\t\tTotal 100 Marks\n");
     printf("\n");
     printf("\t\t----------------------------------------------------\n");
     for (k = 4; k < Max_lines; k++)
@@ -44,7 +44,7 @@ int main()
 
     // input student marks
     // functionality for multiple student
-    fpt = fopen("stud9.txt", "r");
+    fpt = fopen("stud2.txt", "r");
 
     if (fpt == NULL)
     {
@@ -60,9 +60,16 @@ int main()
     }
     fclose(fpt);
     // double marks checking
-    printf("\t\tSelected Subject :\n");
-    printf("\t\t%s", ch[2]);
-    printf("\t\t%s", ch[3]);
+    printf("\t\tName : %s", ch[0]);
+    printf("\t\tRoll : %s", ch[1]);
+    printf("\t\tSelected Subject :\n\t\t1.Physics\n\t\t2.Chemistry\n");
+    printf("\t\t3.%s", ch[2]);
+    printf("\t\t4.%s", ch[3]);
+    //phy(4-28)
+    //che(29-53)
+    //math(54-78)
+    //bio(79-103)
+    //eng(104-128)
     int dcut = 0, count = 0;
     for (i = 4; i < line; i++)
     {
@@ -101,7 +108,7 @@ int main()
             }
         }
         // eng
-        if ((strlen(ch[2]) == 9) || (strlen(ch[3]) == 9))
+        if ((strlen(ch[2]) == 17) || (strlen(ch[3]) == 9))
         {
             if (i >= 104 && i < 129)
             {
@@ -121,9 +128,6 @@ int main()
     fout = fopen("total.text", "a");
     fprintf(fout, "Student Name : \n%s", ch[0]);
     fprintf(fout, "Roll Number : \n%s", ch[1]);
-    fprintf(fout, "Optional Subjects\n");
-    fprintf(fout, "%s", ch[2]);
-    fprintf(fout, "%s", ch[3]);
     fprintf(fout, "Obtained Marks : \n%d\n", count);
 
     fclose(fout);
