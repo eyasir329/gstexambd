@@ -1,0 +1,62 @@
+Merit List
+
+Name  : Likhon
+Roll  : 30
+Marks : 98
+
+Name  : Eyasir Ahamed
+Roll  : 15
+Marks : 97
+
+Name  : Muntasir
+Roll  : 9
+Marks : 51
+
+Name  : Toukir Ahmed
+Roll  : 25
+Marks : 49
+
+Name  : Foysal Sheikh 
+Roll  : 15
+Marks : 27
+
+Name  : Mridul
+Roll  : 24
+Marks : 27
+
+Name  : Sadman Sakir
+Roll  : 27
+Marks : 24
+
+Name  : Md. Razib Mia
+Roll  : 22
+Marks : 22
+
+Name  : Akib Mahbub
+Roll  : 22
+Marks : 22
+
+Name  : Hakim
+Roll  : 22
+Marks : 22
+
+Name  : Nishat Sultana Raki 
+Roll  : 11
+Marks : 21
+
+Name  : Imtius Ahmed
+Roll  : 22
+Marks : 18
+
+Name  : minhaj tapader
+Roll  : 13
+Marks : 17
+
+Name  : Sochcha
+Roll  : 25
+Marks : 7
+
+Name  : Fahim
+Roll  : 26
+Marks : 5
+

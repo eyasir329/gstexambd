@@ -17,7 +17,7 @@ int main(){
     char roll[MaxLines][MaxLength];
     char marks[MaxLines][MaxLength];
 
-    FILE *fin;
+    FILE *fin,*fmerit;
     fin=fopen("total.text","r");
     if(fin==NULL){
         printf("Error Opening File\n");
@@ -88,6 +88,16 @@ int main(){
     }
     printf("-----------------------------------------------------------\n");
     printf("-----------------------------------------------------------\n");
+
+    //output file
+    fmerit=fopen("merit.txt","w");
+    fprintf(fmerit, "Merit List\n\n");
+    for(int k=0;k<Num_Student;k++){
+        fprintf(fmerit, "Name  : %s", input[k].studName);
+        fprintf(fmerit, "Roll  : %d\n", input[k].rollNum);
+        fprintf(fmerit, "Marks : %d\n\n", input[k].MarksALL);
+    }
+    fclose(fmerit);
 
     return 0;
 }
