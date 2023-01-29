@@ -136,9 +136,9 @@ int main()
     printf("\t\t----------------------------------------------------\n");
     printf("\t\tName : %s", ch[0]);
     printf("\t\tRoll : %s", ch[1]);
-    printf("\t\tSelected Subject :\n\t\t1.Physics - %d\n\t\t2.Chemistry - %d\n", phy, che);
+    printf("\t\tOptained Marks From Selected Subject :\n\t\t1.Physics - %d\n\t\t2.Chemistry - %d\n", phy, che);
     printf("\n");
-    printf("\t\tOptional Subjects Are:\n");
+    printf("\t\tOptained Marks From Optional Subjects Are:\n");
     printf("\t\t--------------------\n");
     //printf("\t\t3.%s", ch[2]);
     //printf("\t\t4.%s", ch[3]);
