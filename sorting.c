@@ -1,13 +1,20 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 #define MaxLines 90
 #define MaxLength 30
 #define Num_Student 15
 
-int main(){
-    int i,line=0;
-    char arrTotal[MaxLines][MaxLength];
+struct student{
+    char roll[MaxLines][MaxLength];
     char name[MaxLines][MaxLength];
+    char marks[MaxLines][MaxLength];
+};
+
+int main(){
+    int i,line=0
+    ;
+    char arrTotal[MaxLines][MaxLength];
     FILE *fin;
     fin=fopen("total.text","r");
     if(fin==NULL){
@@ -15,7 +22,7 @@ int main(){
     }
     while (!feof(fin)&&!ferror(fin))
     {
-        if (fgets(arrTotal[line],MaxLines,fin) != NULL)
+        if (fgets(arrTotal[line],MaxLines,fin))
         {
             line++;
         }
@@ -23,6 +30,50 @@ int main(){
     
     fclose(fin);
 
+    //structure
+    int na=1;
+    int ro=3;
+    int to=5;
+    struct student input[Num_Student];
+    for(i=0;i<Num_Student;i++){
+
+        strcpy(input[i].name,arrTotal[na]);
+        na=na+6;
+
+        strcpy(input[i].roll,arrTotal[ro]);
+        ro=ro+6;
+
+        strcpy(input[i].marks,arrTotal[to]);
+        to=to+6;
+    }
+
+    //display struct
+    printf("-----------------------------------------------------------\n");
+    printf("-----------------------------------------------------------\n");
+    printf("Display List Without Sorting\n");
+    printf("-----------------------------------------------------------\n");
+    for(i=0;i<Num_Student;i++){
+        printf("Name : %sRoll : %sMarks : %s\n",input[i].name,input[i].roll,input[i].marks);
+    }
+    printf("-----------------------------------------------------------\n");
+
+
+    //sorting structure
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+/*
     //name
     printf("Printing Name From File\n");
     int n=1;
@@ -52,6 +103,6 @@ int main(){
         t=t+6;
     }
 
-    
+    */
     return 0;
 }
