@@ -44,11 +44,11 @@ int main()
 
     // input student marks
     // functionality for multiple student
-    fpt = fopen("stud2.txt", "r");
+    fpt = fopen("stud1.txt", "r");
 
     if (fpt == NULL)
     {
-        printf("Student data file is not found\n");
+        printf("\t\t\tStudent data file is not found\n\t\t----------------------------------------------------\n");
         return 1;
     }
     while (!feof(fpt) && !ferror(fpt))
@@ -59,17 +59,13 @@ int main()
         }
     }
     fclose(fpt);
-    // double marks checking
-    printf("\t\tName : %s", ch[0]);
-    printf("\t\tRoll : %s", ch[1]);
-    printf("\t\tSelected Subject :\n\t\t1.Physics\n\t\t2.Chemistry\n");
-    printf("\t\t3.%s", ch[2]);
-    printf("\t\t4.%s", ch[3]);
-    //phy(4-28)
-    //che(29-53)
-    //math(54-78)
-    //bio(79-103)
-    //eng(104-128)
+    // marks checking
+    // phy(4-28)
+    // che(29-53)
+    // math(54-78)
+    // bio(79-103)
+    // eng(104-128)
+    int phy = 0, che = 0, math = 0, bio = 0, eng = 0;
     int dcut = 0, count = 0;
     for (i = 4; i < line; i++)
     {
@@ -77,50 +73,93 @@ int main()
         {
             dcut++;
         }
-        // phy,chemistry
-        if (i >= 4 && i < 54)
+        else
         {
-            if (strcmp(ans[i], ch[i]) == 0)
-            {
-                count++;
-            }
-        }
-        // math
-        if (strlen(ch[2]) == 12)
-        {
-            if (i >= 54 && i < 79)
+            // phy
+            if (i >= 4 && i < 29)
             {
                 if (strcmp(ans[i], ch[i]) == 0)
                 {
                     count++;
+                    phy++;
                 }
             }
-        }
-        // bio
-        if ((strlen(ch[2]) == 8) || (strlen(ch[3]) == 8))
-        {
-            if (i >= 79 && i < 104)
+            // chemistry
+            if (i >= 29 && i < 54)
             {
                 if (strcmp(ans[i], ch[i]) == 0)
                 {
                     count++;
+                    che++;
                 }
             }
-        }
-        // eng
-        if ((strlen(ch[2]) == 17) || (strlen(ch[3]) == 9))
-        {
-            if (i >= 104 && i < 129)
+            // math
+            if (strlen(ch[2]) == 12)
             {
-                if (strcmp(ans[i], ch[i]) == 0)
+                if (i >= 54 && i < 79)
                 {
-                    count++;
+                    if (strcmp(ans[i], ch[i]) == 0)
+                    {
+                        count++;
+                        math++;
+                    }
+                }
+            }
+            // bio
+            if ((strlen(ch[2]) == 8) || (strlen(ch[3]) == 8))
+            {
+                if (i >= 79 && i < 104)
+                {
+                    if (strcmp(ans[i], ch[i]) == 0)
+                    {
+                        count++;
+                        bio++;
+                    }
+                }
+            }
+            // eng
+            if ((strlen(ch[2]) == 17) || (strlen(ch[3]) == 17))
+            {
+                if (i >= 104 && i < 129)
+                {
+                    if (strcmp(ans[i], ch[i]) == 0)
+                    {
+                        count++;
+                        eng++;
+                    }
                 }
             }
         }
     }
+    // extra printing
+    printf("\t\t\t\tTotal Marks Counting\n");
+    printf("\t\t----------------------------------------------------\n");
+    printf("\t\tName : %s", ch[0]);
+    printf("\t\tRoll : %s", ch[1]);
+    printf("\t\tSelected Subject :\n\t\t1.Physics - %d\n\t\t2.Chemistry - %d\n", phy, che);
+    printf("\n");
+    printf("\t\tOptional Subjects Are:\n");
+    printf("\t\t--------------------\n");
+    //printf("\t\t3.%s", ch[2]);
+    //printf("\t\t4.%s", ch[3]);
+    // math
+    if (strlen(ch[2]) == 12)
+    {
+        printf("\t\tHigher Math - %d\n", math);
+    }
+    // bio
+    if ((strlen(ch[2]) == 8) || (strlen(ch[3]) == 8))
+    {
+        printf("\t\tBiology - %d\n", bio);
+    }
+    // eng
+    if ((strlen(ch[2]) == 17) || (strlen(ch[3]) == 17))
+    {
+        printf("\t\tEnglish Language - %d\n", eng);
+    }
     // comparing marks and answer
-    printf("\t\t\tTotal Number : %d\n", count);
+    printf("\t\t----------------------------------------------------\n");
+    printf("\t\t\t\tTotal Number : %d\n", count);
     printf("\t\t----------------------------------------------------\n");
     printf("\t\t----------------------------------------------------\n");
 
