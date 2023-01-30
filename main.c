@@ -3,7 +3,6 @@
 #define Max_lines 129
 #define Max_len 30
 
-// input ans and student mark
 int main()
 {
     int i = 0, k, line = 0, len = 0;
@@ -13,7 +12,7 @@ int main()
 
     FILE *fans, *fpt, *fout;
 
-    // input answersheet
+    // input answersheet from ans.text
     fans = fopen("ans.text", "r");
     if (fans == NULL)
     {
@@ -42,9 +41,9 @@ int main()
     }
     printf("\t\t----------------------------------------------------\n");
 
-    // input student marks
-    // functionality for multiple student
-    fpt = fopen("stud1.txt", "r");
+    // input student marks from stud*.txt
+    // for multiple input change * to integer number from 1-15
+    fpt = fopen("stud4.txt", "r");
 
     if (fpt == NULL)
     {
@@ -69,13 +68,14 @@ int main()
     int dcut = 0, count = 0;
     for (i = 4; i < line; i++)
     {
+        // if answer double or more then its not count
         if (strlen(ch[i]) > 2)
         {
             dcut++;
         }
         else
         {
-            // phy
+            // physics number count
             if (i >= 4 && i < 29)
             {
                 if (strcmp(ans[i], ch[i]) == 0)
@@ -84,7 +84,7 @@ int main()
                     phy++;
                 }
             }
-            // chemistry
+            // chemistry number count
             if (i >= 29 && i < 54)
             {
                 if (strcmp(ans[i], ch[i]) == 0)
@@ -93,7 +93,7 @@ int main()
                     che++;
                 }
             }
-            // math
+            // math number count
             if (strlen(ch[2]) == 12)
             {
                 if (i >= 54 && i < 79)
@@ -105,7 +105,7 @@ int main()
                     }
                 }
             }
-            // bio
+            // biology number count
             if ((strlen(ch[2]) == 8) || (strlen(ch[3]) == 8))
             {
                 if (i >= 79 && i < 104)
@@ -117,7 +117,7 @@ int main()
                     }
                 }
             }
-            // eng
+            // english number count
             if ((strlen(ch[2]) == 17) || (strlen(ch[3]) == 17))
             {
                 if (i >= 104 && i < 129)
@@ -131,18 +131,20 @@ int main()
             }
         }
     }
-    // extra printing
+    // details and total marks printing
     printf("\t\t\t\tTotal Marks Counting\n");
     printf("\t\t----------------------------------------------------\n");
+    // name print
     printf("\t\tName : %s", ch[0]);
+    // roll print
     printf("\t\tRoll : %s", ch[1]);
+    // marks for phy,chemistry
     printf("\t\tOptained Marks From Selected Subject :\n\t\t1.Physics - %d\n\t\t2.Chemistry - %d\n", phy, che);
     printf("\n");
     printf("\t\tOptained Marks From Optional Subjects Are:\n");
     printf("\t\t--------------------\n");
-    //printf("\t\t3.%s", ch[2]);
-    //printf("\t\t4.%s", ch[3]);
-    // math
+    // optional subjects marks print
+    //  math
     if (strlen(ch[2]) == 12)
     {
         printf("\t\tHigher Math - %d\n", math);
@@ -157,7 +159,7 @@ int main()
     {
         printf("\t\tEnglish Language - %d\n", eng);
     }
-    // comparing marks and answer
+    // total number print
     printf("\t\t----------------------------------------------------\n");
     printf("\t\t\t\tTotal Number : %d\n", count);
     printf("\t\t----------------------------------------------------\n");
@@ -171,4 +173,5 @@ int main()
 
     fclose(fout);
     return 0;
+    // end
 }
