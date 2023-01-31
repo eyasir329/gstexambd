@@ -6,7 +6,6 @@
 int main()
 {
     int i = 0, k, line = 0, len = 0;
-    int num_stud = 10;
     char ch[Max_lines][Max_len];
     char ans[Max_lines][Max_len];
 
@@ -30,11 +29,12 @@ int main()
     // answer sheet print
     printf("\t\t----------------------------------------------------\n");
     printf("\t\t-----------------------SOLUTION---------------------\n");
-    printf("Physics[1-25],Chemistry[26-50],Higher Math[51-75],Biology[76-100],English[101-125]\n");
+    printf("\t\tPhysics[1-25],Chemistry[26-50],Higher Math[51-75],\n\t\tBiology[76-100],English[101-125]\n");
     printf("\t\tSelect Phusics, Chemistry And Two More Subjects\n");
-    printf("\t\t\t\tTotal 100 Marks\n");
-    printf("\n");
     printf("\t\t----------------------------------------------------\n");
+    printf("\t\t\t\tTotal 100 Marks\n");
+    printf("\t\t----------------------------------------------------\n");
+    printf("\n");
     for (k = 4; k < Max_lines; k++)
     {
         printf("\t\t\tQuestion %d:- Answer is : %s\t\t\t\n", k - 3, ans[k]);
@@ -43,7 +43,7 @@ int main()
 
     // input student marks from stud*.txt
     // for multiple input change * to integer number from 1-15
-    fpt = fopen("stud4.txt", "r");
+    fpt = fopen("stud15.txt", "r");
 
     if (fpt == NULL)
     {

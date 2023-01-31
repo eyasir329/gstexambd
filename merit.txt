@@ -6,47 +6,47 @@ Roll  : 30
 Marks : 98
 Merit Position : 1
 
+Name  : Hakim
+Roll  : 22
+Marks : 96
+Merit Position : 2
+
 Name  : Eyasir Ahamed
 Roll  : 15
-Marks : 97
-Merit Position : 2
+Marks : 88
+Merit Position : 3
 
 Name  : Muntasir
 Roll  : 9
 Marks : 51
-Merit Position : 3
+Merit Position : 4
 
 Name  : Toukir Ahmed
 Roll  : 25
 Marks : 49
-Merit Position : 4
+Merit Position : 5
 
 Name  : Foysal Sheikh 
 Roll  : 15
 Marks : 27
-Merit Position : 5
+Merit Position : 6
 
 Name  : Mridul
 Roll  : 24
 Marks : 27
-Merit Position : 6
+Merit Position : 7
 
 Name  : Sadman Sakir
 Roll  : 27
 Marks : 24
-Merit Position : 7
+Merit Position : 8
 
 Name  : Md. Razib Mia
 Roll  : 22
 Marks : 22
-Merit Position : 8
-
-Name  : Akib Mahbub
-Roll  : 22
-Marks : 22
 Merit Position : 9
 
-Name  : Hakim
+Name  : Akib Mahbub
 Roll  : 22
 Marks : 22
 Merit Position : 10
